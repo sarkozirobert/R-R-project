@@ -37,13 +37,13 @@ public class Casino {
 
         for (Player p : players) {
             if (p.getNumbersToBetOn().contains(winnerNum)) {
-                int newBalance = p.getBalance() + winnerPrice();
+                int newBalance = p.getBalance() + winnerPrice(p.getActualBetSize());
                 p.setBalance(newBalance);
             }
         }
     }
 
-    public int winnerPrice() {
+    public int winnerPrice(int betSize) {
         return 0;
     }
 
