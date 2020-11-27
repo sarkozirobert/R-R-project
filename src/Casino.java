@@ -13,6 +13,10 @@ public class Casino {
         this.maxBet = maxBet;
     }
 
+    public Rulett getRulettWheel() {
+        return rulettWheel;
+    }
+
     public int getMinBet() {
         return minBet;
     }
