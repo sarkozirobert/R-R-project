@@ -3,7 +3,8 @@ import java.util.*;
 public class Rulett {
 
     private Map<String, ArrayList<Integer>> fields;
-    private String winnerNum;
+    private int winnerNum;
+    private String winnerNumColor;
 
     public Rulett() {
         Integer[] red = {1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36};
@@ -19,25 +20,22 @@ public class Rulett {
         fields.put("green", theNull);
     }
 
-    public String getWinnerNum() {
+    public int getWinnerNum() {
         return winnerNum;
     }
 
-    public void spin() {
-        int num = (int)(Math.random() * 3);
+    public String getWinnerNumColor() {
+        return winnerNumColor;
+    }
 
-        switch (num) {
-            case 0:
-                winnerNum = "0";
+    public void spin() {
+        winnerNum = (int)(Math.random() * 37);
+
+        for (Map.Entry<String, ArrayList<Integer>> entry : fields.entrySet()) {
+            if (entry.getValue().contains(winnerNum)) {
+                winnerNumColor = entry.getKey();
                 break;
-            case 1:
-                int numForRed = (int)(Math.random() * fields.get("red").size());
-                winnerNum = "red " + numForRed;
-                break;
-            case 2:
-                int numForBlack = (int)(Math.random() * fields.get("black").size());
-                winnerNum = "black " + numForBlack;
-                break;
+            }
         }
     }
 
