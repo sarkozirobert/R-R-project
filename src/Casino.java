@@ -1,4 +1,3 @@
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,13 +36,13 @@ public class Casino {
 
         for (Player p : players) {
             if (p.getNumbersToBetOn().contains(winnerNum)) {
-                int newBalance = p.getBalance() + winnerPrice(p.getActualBetSize());
+                int newBalance = p.getBalance() + countWinnerPrice(winnerNum, p.getActualBetSize());
                 p.setBalance(newBalance);
             }
         }
     }
 
-    public int winnerPrice(int betSize) {
+    public int countWinnerPrice(int winnerNum, int betSize) {
         return 0;
     }
 
