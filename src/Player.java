@@ -8,6 +8,7 @@ public abstract class Player {
     private ArrayList<Integer> allBets = new ArrayList<>();
     private ArrayList<Integer> profitNloss = new ArrayList<>();
     private ArrayList<Integer> numbersToBetOn = new ArrayList<>();
+    private Casino casino;
 
     public Player () {
 
@@ -51,6 +52,14 @@ public abstract class Player {
 
     public void setNumbersToBetOn(ArrayList<Integer> numbersToBetOn) {
         this.numbersToBetOn = numbersToBetOn;
+    }
+
+    public Casino getCasino() {
+        return casino;
+    }
+
+    public void setCasino(Casino casino) {
+        this.casino = casino;
     }
 
     @Override
