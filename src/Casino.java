@@ -30,6 +30,9 @@ public class Casino {
     }
 
     public void oneRound() {
+        for (Player p : players) {
+            p.play();
+        }
         rulettWheel.spin();
         int winnerNum = rulettWheel.getWinnerNum();
         String winnerColor = rulettWheel.getWinnerNumColor();
@@ -43,6 +46,10 @@ public class Casino {
     }
 
     public int countWinnerPrice(int winnerNum, int betSize) {
+        // megkapja a győztes számot, illetve a játékos által feltett összeget
+        // ebből számolja ki, hogy mennyit kap a játékos
+        // itt szerintem érdemes HashMap-be berakni a különböző nyerőosztályokat
+
         return 0;
     }
 
