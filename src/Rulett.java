@@ -4,7 +4,6 @@ import java.util.Map;
 
 public class Rulett {
 
-
     private Map<String, ArrayList<Integer>> fields;
     private int winnerNum;
     private String winnerNumColor;
@@ -41,5 +40,5 @@ public class Rulett {
             }
         }
     }
-    
+
 }
