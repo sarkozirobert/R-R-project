@@ -30,6 +30,10 @@ public class Rulett {
         return winnerNumColor;
     }
 
+    public Map<String, ArrayList<Integer>> getFields() {
+        return fields;
+    }
+
     public void spin() {
         winnerNum = (int)(Math.random() * 37);
 
