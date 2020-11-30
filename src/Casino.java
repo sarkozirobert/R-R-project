@@ -12,6 +12,7 @@ public class Casino {
     public Casino(int minBet, int maxBet) {
         this.minBet = minBet;
         this.maxBet = maxBet;
+        rulettWheel = new Rulett();
     }
 
     public Rulett getRulettWheel() {
@@ -36,28 +37,38 @@ public class Casino {
     }
 
     public void oneRound() {
-
         for (Player p : players) {
             p.play();
         }
 
         rulettWheel.spin();
-        
+
         int winnerNum = rulettWheel.getWinnerNum();
         String winnerColor = rulettWheel.getWinnerNumColor();
+        System.out.println("*** a nyerőszám: " + winnerNum);
 
         for (Player p : players) {
             if (p.getActualBetSize() > 0) {
+                System.out.println(p.getName() + " játszott. Vagyona a játék elején: " + p.getBalance());
+                System.out.println("\t" + "tétje: " + p.getActualBetSize() + " zseton");
+                System.out.println("\t" + "számok, amikre fogadott: " + p.getNumbersToBetOn());
+
                 p.setBalance(-p.getActualBetSize());
                 if (p.getNumbersToBetOn().contains(winnerNum)) {
                     int winPrice = countWinPrice(p);
                     p.setWinsNloss(winPrice);
                     p.setBalance(winPrice);
+
+                    System.out.println(p.getName() + " nyert " + winPrice + " zsetont.");
                 } else {
-                    p.setWinsNloss(p.getActualBetSize());
+                    p.setWinsNloss(-p.getActualBetSize());
+                    System.out.println(p.getName() + " veszített.");
                 }
             }
         }
+
+        checkingPlayer();
+
     }
 
     public int countWinPrice(Player p) {
@@ -90,12 +101,13 @@ public class Casino {
     }
 
     public void checkingPlayer (){
-        ListIterator<Player> iterator = players.listIterator();
-        while (iterator.hasNext()){
-            if (iterator.next().getActualBetSize() == 0 && iterator.next().isWantToPlay() == false){
-                players.remove(iterator.next());
+        List<Player> toRemove = new ArrayList<>();
+        for (Player p : players) {
+            if (!p.isWantToPlay()) {
+                toRemove.add(p);
             }
         }
+        players.removeAll(toRemove);
     }
 
 }

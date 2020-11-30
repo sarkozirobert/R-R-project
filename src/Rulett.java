@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Rulett {
 
-    private Map<String, ArrayList<Integer>> fields;
+    private Map<String, ArrayList<Integer>> fields = new HashMap<>();
     private int winnerNum;
     private String winnerNumColor;
 

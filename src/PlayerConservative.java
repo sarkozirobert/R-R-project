@@ -2,6 +2,10 @@ import java.util.ArrayList;
 
 public class PlayerConservative extends Player {
 
+    public PlayerConservative() {
+        setName("Konzervatív Károly");
+    }
+
     @Override
     public void play() {
         // megszámolja, hányszor veszített már

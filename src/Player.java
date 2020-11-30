@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public abstract class Player {
 
+    private String name;
     private int balance;
     private int actualBetSize;
     private ArrayList<Integer> allBets = new ArrayList<>();
@@ -11,7 +12,15 @@ public abstract class Player {
     private boolean wantToPlay = true;
 
     public Player () {
-        balance = (int) Math.random() * 480000 + 20001;
+        balance = (int) (Math.random() * 480000 + 20001);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getBalance() {

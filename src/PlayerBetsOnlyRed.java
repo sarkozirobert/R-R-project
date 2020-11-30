@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class PlayerBetsOnlyRed extends Player{
 
     public PlayerBetsOnlyRed () {
+        setName("Martingél Béla");
     }
 
     @Override
@@ -23,13 +24,11 @@ public class PlayerBetsOnlyRed extends Player{
         System.out.println("Adja meg a tét összegét! (Számot írjon be!)");
         this.setActualBetSize(sc2.nextInt());*/
 
-        int bet = getCasino().getMinBet();
-        setActualBetSize(bet);
-
         ArrayList<Integer> betNums = getCasino().getRulettWheel().getFields().get("red");
         setNumbersToBetOn(betNums);
 
         if (getWinsNloss().size() == 0) {
+            int bet = getCasino().getMinBet();
             setActualBetSize(bet);
         }
         else if (getWinsNloss().get(getWinsNloss().size() - 1) < 0) {
@@ -38,7 +37,7 @@ public class PlayerBetsOnlyRed extends Player{
                 setActualBetSize(getCasino().getMaxBet());
             }
         }
-        else {
+        else if (getWinsNloss().get(getWinsNloss().size() - 1) > 0) {
             setActualBetSize(0);
             setWantToPlay(false);
         }
