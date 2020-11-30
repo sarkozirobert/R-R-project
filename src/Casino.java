@@ -36,10 +36,14 @@ public class Casino {
     }
 
     public void oneRound() {
+        checkingPlayer();
+
         for (Player p : players) {
             p.play();
         }
+
         rulettWheel.spin();
+        
         int winnerNum = rulettWheel.getWinnerNum();
         String winnerColor = rulettWheel.getWinnerNumColor();
 
