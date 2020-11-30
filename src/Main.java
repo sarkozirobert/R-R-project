@@ -48,7 +48,25 @@ public class Main {
     }
 
     public void userPlay(Scanner input) {
-        // other things happen here
+        System.out.println("Válasszon stratégiát! Adja meg a stratégia számát!");
+        System.out.println("1 - egyéni (a tét és a megjátszott számok egyénileg adhatóak meg)");
+        System.out.println("2 - Martingél Béla (csak a pirosra fogad, a tét első körben a minimális tét, utána mindig az előző duplája, amíg nem nyer");
+        System.out.println("3 - konzervatív (csak a pirosra fogad, mindig a minimum téttel)");
+        String answer = input.nextLine();
+
+        switch (answer) {
+            case "1":
+                // ez még nincs kész
+                break;
+            case "2":
+                PlayerBetsOnlyRed pOnlyRed = new PlayerBetsOnlyRed();
+                break;
+            case "3":
+                PlayerConservative pCons = new PlayerConservative();
+                break;
+            default:
+                System.out.println("Nincs ilyen stratégia, a program leáll.");
+        }
     }
 
 }
