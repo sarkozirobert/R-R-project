@@ -24,6 +24,8 @@ public class PlayerConservative extends Player {
             // mindig a pirosra fogad
             ArrayList<Integer> betNums = getCasino().getRulettWheel().getFields().get("red");
             setNumbersToBetOn(betNums);
+        } else {
+            setActualBetSize(0);
         }
 
     }
