@@ -42,14 +42,18 @@ public class Casino {
         String winnerColor = rulettWheel.getWinnerNumColor();
 
         for (Player p : players) {
+            p.setBalance(-p.getActualBetSize());
             if (p.getNumbersToBetOn().contains(winnerNum)) {
-                int newBalance = p.getBalance() + countWinnerPrice(winnerNum, p.getActualBetSize());
-                p.setBalance(newBalance);
+                int winPrice = countWinnerPrice(p);
+                p.setProfitNloss(winPrice);
+                p.setBalance(winPrice);
+            } else {
+                p.setProfitNloss(p.getActualBetSize());
             }
         }
     }
 
-    public int countWinnerPrice(int winnerNum, int betSize) {
+    public int countWinnerPrice(Player p) {
         // megkapja a győztes számot, illetve a játékos által feltett összeget
         // ebből számolja ki, hogy mennyit kap a játékos
         // itt szerintem érdemes HashMap-be berakni a különböző nyerőosztályokat
