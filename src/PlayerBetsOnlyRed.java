@@ -24,12 +24,23 @@ public class PlayerBetsOnlyRed extends Player{
         System.out.println("Adja meg a tét összegét! (Számot írjon be!)");
         this.setActualBetSize(sc2.nextInt());*/
 
-        Casino casino = new Casino(200, 20000);
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Adja meg a stratégiát!");
-        String strategy = sc.nextLine();
-        if (strategy == "csak piros, tét mindig duplázva"){
-            this.setActualBetSize(casino.getMinBet());
+        int bet = getCasino().getMinBet();
+        setActualBetSize(bet);
+
+        ArrayList<Integer> betNums = getCasino().getRulettWheel().getFields().get("red");
+        setNumbersToBetOn(betNums);
+
+        if (getProfitNloss().size() == 0) {
+            setActualBetSize(bet);
+        }
+        else if (getProfitNloss().get(getProfitNloss().size() - 1) < 0) {
+            setActualBetSize(getActualBetSize() * 2);
+            if (getActualBetSize() > getCasino().getMaxBet()){
+                setActualBetSize(getCasino().getMaxBet());
+            }
+        }
+        else {
+            setActualBetSize(0);
         }
     }
 }
