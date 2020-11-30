@@ -36,7 +36,6 @@ public class Casino {
     }
 
     public void oneRound() {
-        checkingPlayer();
 
         for (Player p : players) {
             p.play();
