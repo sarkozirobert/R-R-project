@@ -25,6 +25,7 @@ public class PlayerConservative extends Player {
             ArrayList<Integer> betNums = getCasino().getRulettWheel().getFields().get("red");
             setNumbersToBetOn(betNums);
         }
+
     }
 
 }
