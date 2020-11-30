@@ -67,6 +67,10 @@ public class Casino {
             }
         }
 
+        for (Player p : players) {
+            p.wantToPlayMore();
+        }
+
         checkingPlayer();
 
     }

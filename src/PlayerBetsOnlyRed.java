@@ -37,9 +37,15 @@ public class PlayerBetsOnlyRed extends Player{
                 setActualBetSize(getCasino().getMaxBet());
             }
         }
-        else if (getWinsNloss().get(getWinsNloss().size() - 1) > 0) {
+
+    }
+
+    @Override
+    public void wantToPlayMore() {
+        if (getWinsNloss().get(getWinsNloss().size() - 1) > 0) {
             setActualBetSize(0);
             setWantToPlay(false);
         }
     }
+
 }
