@@ -42,13 +42,15 @@ public class Casino {
         String winnerColor = rulettWheel.getWinnerNumColor();
 
         for (Player p : players) {
-            p.setBalance(-p.getActualBetSize());
-            if (p.getNumbersToBetOn().contains(winnerNum)) {
-                int winPrice = countWinPrice(p);
-                p.setProfitNloss(winPrice);
-                p.setBalance(winPrice);
-            } else {
-                p.setProfitNloss(p.getActualBetSize());
+            if (p.getActualBetSize() > 0) {
+                p.setBalance(-p.getActualBetSize());
+                if (p.getNumbersToBetOn().contains(winnerNum)) {
+                    int winPrice = countWinPrice(p);
+                    p.setProfitNloss(winPrice);
+                    p.setBalance(winPrice);
+                } else {
+                    p.setProfitNloss(p.getActualBetSize());
+                }
             }
         }
     }
