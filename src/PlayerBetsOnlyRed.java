@@ -40,6 +40,7 @@ public class PlayerBetsOnlyRed extends Player{
         }
         else {
             setActualBetSize(0);
+            setWantToPlay(false);
         }
     }
 }
