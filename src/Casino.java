@@ -84,4 +84,12 @@ public class Casino {
         return 0;
     }
 
+    public void checkingPlayer (List<Player> players){
+        for (Player player : players) {
+            if (player.getActualBetSize() == 0 && player.isWantToPlay() == false){
+                players.remove(player);
+            }
+        }
+    }
+
 }
