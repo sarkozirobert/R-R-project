@@ -18,8 +18,8 @@ public abstract class Player {
         return balance;
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
+    public void setBalance(int value) {
+        balance += value;
     }
 
     public int getActualBetSize() {
@@ -42,8 +42,8 @@ public abstract class Player {
         return profitNloss;
     }
 
-    public void setProfitNloss(ArrayList<Integer> profitNloss) {
-        this.profitNloss = profitNloss;
+    public void setProfitNloss(int value) {
+        profitNloss.add(value);
     }
 
     public ArrayList<Integer> getNumbersToBetOn() {
