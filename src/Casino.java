@@ -32,6 +32,7 @@ public class Casino {
 
     public void playerStepInto(Player player) {
         players.add(player);
+        player.setCasino(this);
     }
 
     public void oneRound() {
