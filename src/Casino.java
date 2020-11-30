@@ -46,10 +46,10 @@ public class Casino {
                 p.setBalance(-p.getActualBetSize());
                 if (p.getNumbersToBetOn().contains(winnerNum)) {
                     int winPrice = countWinPrice(p);
-                    p.setProfitNloss(winPrice);
+                    p.setWinsNloss(winPrice);
                     p.setBalance(winPrice);
                 } else {
-                    p.setProfitNloss(p.getActualBetSize());
+                    p.setWinsNloss(p.getActualBetSize());
                 }
             }
         }

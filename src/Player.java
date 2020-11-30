@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public abstract class Player {
@@ -6,7 +5,7 @@ public abstract class Player {
     private int balance;
     private int actualBetSize;
     private ArrayList<Integer> allBets = new ArrayList<>();
-    private ArrayList<Integer> profitNloss = new ArrayList<>();
+    private ArrayList<Integer> winsNloss = new ArrayList<>();
     private ArrayList<Integer> numbersToBetOn = new ArrayList<>();
     private Casino casino;
 
@@ -38,12 +37,12 @@ public abstract class Player {
         this.allBets = allBets;
     }
 
-    public ArrayList<Integer> getProfitNloss() {
-        return profitNloss;
+    public ArrayList<Integer> getWinsNloss() {
+        return winsNloss;
     }
 
-    public void setProfitNloss(int value) {
-        profitNloss.add(value);
+    public void setWinsNloss(int value) {
+        winsNloss.add(value);
     }
 
     public ArrayList<Integer> getNumbersToBetOn() {
@@ -66,7 +65,7 @@ public abstract class Player {
     public String toString() {
         return "Player{" +
                 "allBets=" + allBets +
-                ", profitNloss=" + profitNloss +
+                ", profitNloss=" + winsNloss +
                 ", numbersToBetOn=" + numbersToBetOn +
                 '}';
     }

@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class PlayerBetsOnlyRed extends Player{
 
@@ -30,10 +29,10 @@ public class PlayerBetsOnlyRed extends Player{
         ArrayList<Integer> betNums = getCasino().getRulettWheel().getFields().get("red");
         setNumbersToBetOn(betNums);
 
-        if (getProfitNloss().size() == 0) {
+        if (getWinsNloss().size() == 0) {
             setActualBetSize(bet);
         }
-        else if (getProfitNloss().get(getProfitNloss().size() - 1) < 0) {
+        else if (getWinsNloss().get(getWinsNloss().size() - 1) < 0) {
             setActualBetSize(getActualBetSize() * 2);
             if (getActualBetSize() > getCasino().getMaxBet()){
                 setActualBetSize(getCasino().getMaxBet());

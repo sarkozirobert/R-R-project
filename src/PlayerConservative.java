@@ -6,14 +6,14 @@ public class PlayerConservative extends Player {
     public void play() {
         // megszámolja, hányszor veszített már
         int looses = 0;
-        for (Integer i : getProfitNloss()) {
+        for (Integer i : getWinsNloss()) {
             if (i < 0) {
                 looses++;
             }
         }
 
         // megszámolja, hányszor nyert már
-        int wins = getProfitNloss().size() - looses;
+        int wins = getWinsNloss().size() - looses;
 
         // akkor játszik, ha van pénze ÉS ha az eddigi veszített körök száma kevesebb/egyenlő, mint a nyert köröké
         if (getBalance() > 0 && looses <= wins) {
