@@ -6,6 +6,8 @@ public class Main {
 
         Main m = new Main();
 
+        Casino casino = new Casino(1000, 50000);
+
         Scanner input = new Scanner(System.in);
         System.out.println("Mit szeretne csinálni? Adja meg a számot!");
         System.out.println("1 - szimuláció");
