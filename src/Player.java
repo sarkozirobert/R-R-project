@@ -10,7 +10,7 @@ public abstract class Player {
     private ArrayList<Integer> numbersToBetOn = new ArrayList<>();
 
     public Player () {
-
+        balance = (int) Math.random() * 480000 + 20001;
     }
 
     public int getBalance() {
