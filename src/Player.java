@@ -8,6 +8,7 @@ public abstract class Player {
     private ArrayList<Integer> winsNloss = new ArrayList<>();
     private ArrayList<Integer> numbersToBetOn = new ArrayList<>();
     private Casino casino;
+    private boolean wantToPlay = true;
 
     public Player () {
         balance = (int) Math.random() * 480000 + 20001;
@@ -59,6 +60,14 @@ public abstract class Player {
 
     public void setCasino(Casino casino) {
         this.casino = casino;
+    }
+
+    public boolean isWantToPlay() {
+        return wantToPlay;
+    }
+
+    public void setWantToPlay(boolean wantToPlay) {
+        this.wantToPlay = wantToPlay;
     }
 
     @Override
