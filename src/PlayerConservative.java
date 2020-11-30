@@ -26,6 +26,7 @@ public class PlayerConservative extends Player {
             setNumbersToBetOn(betNums);
         } else {
             setActualBetSize(0);
+            setWantToPlay(false);
         }
 
     }

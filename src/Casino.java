@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class Casino {
 
@@ -84,10 +85,11 @@ public class Casino {
         return 0;
     }
 
-    public void checkingPlayer (List<Player> players){
-        for (Player player : players) {
-            if (player.getActualBetSize() == 0 && player.isWantToPlay() == false){
-                players.remove(player);
+    public void checkingPlayer (){
+        ListIterator<Player> iterator = players.listIterator();
+        while (iterator.hasNext()){
+            if (iterator.next().getActualBetSize() == 0 && iterator.next().isWantToPlay() == false){
+                players.remove(iterator.next());
             }
         }
     }
