@@ -13,7 +13,7 @@ public class User extends Player {
         System.out.println("3. - 4 szám együtt");
         System.out.println("4. - Csak fekete számok");
         System.out.println("5. - Csak piros számok");
-        String  answer = sc.next();
+        String  answer = sc.nextLine();
 
         switch (answer) {
             case "1":
