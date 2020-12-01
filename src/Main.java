@@ -90,8 +90,6 @@ public class Main {
                 break;
         }
 
-        System.out.println("A szimuláció véget ért.");
-
     }
 
     public void playIt(int round) {
