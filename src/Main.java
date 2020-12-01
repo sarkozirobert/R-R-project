@@ -28,7 +28,11 @@ public class Main {
                 m.simulation(simAnswer);
                 break;
             case "2":
-                
+                User user = new User();
+                casino.playerStepInto(user);
+                while (casino.getPlayers().size() > 0) {
+                    casino.oneRound();
+                }
             default:
                 System.out.println("Eee, rossz válasz! Program vége.");
         }
