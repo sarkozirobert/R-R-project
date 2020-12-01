@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class User extends Player {
 
-
     @Override
     public void play() {
         Scanner sc = new Scanner(System.in);
@@ -59,6 +58,7 @@ public class User extends Player {
 
     @Override
     public void wantToPlayMore() {
+        setNumbersToBetOn(new ArrayList<>());
         System.out.println("Kíván tovább játszani? (igen / nem)");
         Scanner input = new Scanner(System.in);
         String answer = input.nextLine().toLowerCase();

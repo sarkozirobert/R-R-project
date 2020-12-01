@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 public class Casino {
 
@@ -53,11 +52,11 @@ public class Casino {
                 System.out.println("\t" + "tétje: " + p.getActualBetSize() + " zseton");
                 System.out.println("\t" + "számok, amikre fogadott: " + p.getNumbersToBetOn());
 
-                p.setBalance(-p.getActualBetSize());
+                p.changeBalance(-p.getActualBetSize());
                 if (p.getNumbersToBetOn().contains(winnerNum)) {
                     int winPrice = countWinPrice(p);
                     p.setWinsNloss(winPrice);
-                    p.setBalance(winPrice);
+                    p.changeBalance(winPrice);
 
                     System.out.println(p.getName() + " nyert " + winPrice + " zsetont.");
                 } else {

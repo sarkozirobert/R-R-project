@@ -27,7 +27,11 @@ public abstract class Player {
         return balance;
     }
 
-    public void setBalance(int value) {
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public void changeBalance(int value) {
         balance += value;
     }
 
