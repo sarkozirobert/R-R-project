@@ -34,6 +34,11 @@ public class Main {
                 System.out.println("Adja meg a nevét!");
                 user.setName(input.nextLine());
 
+                System.out.println("Mekkora kezdő-összeggel szeretne indulni?");
+                String firstLine = input.nextLine();
+                int balance = Integer.parseInt(firstLine);
+                user.setBalance(balance);
+
                 while (casino.getPlayers().size() > 0) {
                     System.out.println("A rulett-tábla:");
                     m.drawRouletteTable();

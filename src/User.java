@@ -7,10 +7,6 @@ public class User extends Player {
     @Override
     public void play() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Mekkora kezdő-összeggel szeretne indulni?");
-        String firstLine = sc.nextLine();
-        int balance = Integer.parseInt(firstLine);
-        setBalance(balance);
         System.out.println("Milyen stratégiát szeretne játszani? (egy tétet tud felrakni pörgetésenként)");
         System.out.println("1. - Egy szám");
         System.out.println("2. - Két szám közé");
@@ -49,7 +45,7 @@ public class User extends Player {
                 getNumbersToBetOn().add(number4);
                 break;
             case "4":
-                ArrayList<Integer> betNums1 = getCasino().getRulettWheel().getFields().get("blacks");
+                ArrayList<Integer> betNums1 = getCasino().getRulettWheel().getFields().get("black");
                 setNumbersToBetOn(betNums1);
                 break;
             case "5":
