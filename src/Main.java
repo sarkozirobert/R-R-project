@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Main {
 
+    public static Casino casino = new Casino(1000,100000);
+
     public static void main(String[] args) {
 
         Main m = new Main();
@@ -35,7 +37,6 @@ public class Main {
     }
 
     public void simulation (String answer) {
-        Casino casino = new Casino(1000,100000);
         int nrOfSpins = (int) (Math.random() * 21 + 1);
 
         switch (answer) {
@@ -44,43 +45,17 @@ public class Main {
                 PlayerConservative pCons = new PlayerConservative();
                 casino.playerStepInto(pOnlyRed);
                 casino.playerStepInto(pCons);
-                for (int i = 0; i < nrOfSpins; i++) {
-                    if (casino.getPlayers().size() > 0){
-                        System.out.println((i + 1) + ". kör...");
-                        casino.oneRound();
-                    }
-                    else {
-                        System.out.println("A szimuláció véget ért.");
-                        break;
-                    }
-                }
+                playIt(nrOfSpins);
                 break;
             case "1":
                 PlayerBetsOnlyRed player1 = new PlayerBetsOnlyRed();
                 casino.playerStepInto(player1);
-                for (int i = 0; i < nrOfSpins; i++) {
-                    if (casino.getPlayers().size() > 0){
-                        System.out.println((i + 1) + ". kör...");
-                        casino.oneRound();
-                    }
-                    else {
-                        System.out.println("A szimuláció véget ért.");
-                        break;
-                    }
-                }
+                playIt(nrOfSpins);
                 break;
             case "2":
                 PlayerConservative player2 = new PlayerConservative();
                 casino.playerStepInto(player2);
-                for (int i = 0; i < nrOfSpins; i++) {
-                    if (casino.getPlayers().size() > 0){
-                        System.out.println((i + 1) + ". kör...");
-                        casino.oneRound();
-                    } else {
-                        System.out.println("A szimuláció véget ért.");
-                        break;
-                    }
-                }
+                playIt(nrOfSpins);
                 break;
         }
 
@@ -90,6 +65,18 @@ public class Main {
         Casino casino = new Casino(1000,100000);
         System.out.println("Milyen stratégiát szeretne követni?");
 
+    }
+
+    public void playIt(int round) {
+        for (int i = 0; i < round; i++) {
+            if (casino.getPlayers().size() > 0){
+                System.out.println((i + 1) + ". kör...");
+                casino.oneRound();
+            } else {
+                System.out.println("A szimuláció véget ért.");
+                break;
+            }
+        }
     }
 
 }
