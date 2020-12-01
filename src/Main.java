@@ -26,7 +26,7 @@ public class Main {
                 m.simulation(simAnswer);
                 break;
             case "2":
-                
+
             default:
                 System.out.println("Eee, rossz válasz! Program vége.");
         }
