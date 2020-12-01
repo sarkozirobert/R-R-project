@@ -30,9 +30,18 @@ public class Main {
             case "2":
                 User user = new User();
                 casino.playerStepInto(user);
+
+                System.out.println("Adja meg a nevét!");
+                user.setName(input.nextLine());
+
                 while (casino.getPlayers().size() > 0) {
+                    System.out.println("A rulett-tábla:");
+                    m.drawRouletteTable();
                     casino.oneRound();
                 }
+                
+                System.out.println("A játék véget ért.");
+                break;
             default:
                 System.out.println("Eee, rossz válasz! Program vége.");
         }
