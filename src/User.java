@@ -8,7 +8,8 @@ public class User extends Player {
     public void play() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Mekkora kezdő-összeggel szeretne indulni?");
-        int balance = sc.nextInt();
+        String firstLine = sc.nextLine();
+        int balance = Integer.parseInt(firstLine);
         setBalance(balance);
         System.out.println("Milyen stratégiát szeretne játszani? (egy tétet tud felrakni pörgetésenként)");
         System.out.println("1. - Egy szám");
@@ -21,7 +22,8 @@ public class User extends Player {
         switch (answer) {
             case "1":
                 System.out.println("Melyik számra tesz tétet?");
-                int nrTobetOn = sc.nextInt();
+                String line0 = sc.nextLine();
+                int nrTobetOn = Integer.parseInt(line0);
                 getNumbersToBetOn().add(nrTobetOn);
                 break;
             case "2":
