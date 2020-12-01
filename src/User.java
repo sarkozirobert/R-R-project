@@ -61,6 +61,13 @@ public class User extends Player {
 
     @Override
     public void wantToPlayMore() {
+        System.out.println("Kíván tovább játszani? (igen / nem)");
+        Scanner input = new Scanner(System.in);
+        String answer = input.nextLine().toLowerCase();
 
+        if (answer.equals("nem")) {
+            setActualBetSize(0);
+            setWantToPlay(false);
+        }
     }
 }
