@@ -22,6 +22,8 @@ public class Main {
                 System.out.println("0 - minden elérhető stratégia");
                 System.out.println("1 - Martingél Béla: mindig a pirosra fogad, a kezdőtéte a minimális tét, azután duplázza a tétet, amíg nem nyer");
                 System.out.println("2 - Konzervatív Károly: mindig a pirosra fogad, a tétje mindig a minimális tét");
+                System.out.println("3 - Random Rebeka: véletlenszerű téttel és véletlenszerű színnel játszik");
+                System.out.println("4 - Totál Random Töhötöm: véletlenszerű téttel és véletlenszerű számmal vagy színnel játszik");
                 String simAnswer = input.nextLine();
                 m.simulation(simAnswer);
                 break;
@@ -42,9 +44,16 @@ public class Main {
             case "0":
                 PlayerBetsOnlyRed pOnlyRed = new PlayerBetsOnlyRed();
                 PlayerConservative pCons = new PlayerConservative();
+                PlayerRandomColor pRCol = new PlayerRandomColor();
+                PlayerFullRandom pFRan = new PlayerFullRandom();
+
                 casino.playerStepInto(pOnlyRed);
                 casino.playerStepInto(pCons);
+                casino.playerStepInto(pRCol);
+                casino.playerStepInto(pFRan);
+
                 playIt(nrOfSpins);
+
                 break;
             case "1":
                 PlayerBetsOnlyRed player1 = new PlayerBetsOnlyRed();
@@ -54,6 +63,16 @@ public class Main {
             case "2":
                 PlayerConservative player2 = new PlayerConservative();
                 casino.playerStepInto(player2);
+                playIt(nrOfSpins);
+                break;
+            case "3":
+                PlayerRandomColor player3 = new PlayerRandomColor();
+                casino.playerStepInto(player3);
+                playIt(nrOfSpins);
+                break;
+            case "4":
+                PlayerFullRandom player4 = new PlayerFullRandom();
+                casino.playerStepInto(player4);
                 playIt(nrOfSpins);
                 break;
         }
