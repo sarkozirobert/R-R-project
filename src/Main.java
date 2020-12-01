@@ -26,8 +26,7 @@ public class Main {
                 m.simulation(simAnswer);
                 break;
             case "2":
-                m.userPlay(input);
-                break;
+                
             default:
                 System.out.println("Eee, rossz válasz! Program vége.");
         }
@@ -58,12 +57,6 @@ public class Main {
                 playIt(nrOfSpins);
                 break;
         }
-
-    }
-
-    public void userPlay(Scanner input) {
-        Casino casino = new Casino(1000,100000);
-        System.out.println("Milyen stratégiát szeretne követni?");
 
     }
 
